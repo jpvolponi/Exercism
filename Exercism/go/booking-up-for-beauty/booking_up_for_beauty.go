@@ -1,14 +1,24 @@
 package booking
 
-import "time"
+import (
+	"time"
+)
 
 // Schedule returns a time.Time from a string containing a date
 func Schedule(date string) time.Time {
-	t, err := time.Parse("01/02/2006 15:04:05", date)
+	t, err := time.Parse("1/02/2006 15:04:05", date)
 	if err != nil {
 		panic(err)
 	}
-	return t.Format("2006-01-02 15:04:05")
+
+	dateString := t.Format("2006-01-02 15:04:05 +00")
+
+	parsed, erro := time.Parse("2006-01-02 15:04:05 +00", dateString)
+	if erro != nil {
+		panic(erro)
+	}
+
+	return parsed
 }
 
 // HasPassed returns whether a date has passed
