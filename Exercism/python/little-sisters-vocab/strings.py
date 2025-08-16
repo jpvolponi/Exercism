@@ -41,8 +41,6 @@ def remove_suffix_ness(word):
 
     For example: "heaviness" becomes "heavy", but "sadness" becomes "sad".
     """
-    new_word = None
-    
     if word[-5] == "i":
         palavara_sem_sufixo = (word[:-5]+"y")
     else:
@@ -63,8 +61,12 @@ def adjective_to_verb(sentence, index):
     For example, ("It got dark as the sun set.", 2) becomes "darken".
     """
     adjectve = sentence.split()[index]
-    print(adjectve)
-    verb = (sentence.split()[index] + "en")
+   
+    if adjectve[(len(adjectve)-1)] == "." or adjectve[(len(adjectve)-1)] == "!" or adjectve[(len(adjectve)-1)] == "?":
+        adjectve = adjectve[:(len(adjectve)-1)]
+        verb = adjectve +"en"
+    else: 
+        verb = (sentence.split()[index] + "en")
     return verb
     pass
-print(adjective_to_verb("His expression went dark.", -1))
+#print(adjective_to_verb("His expression went dark.", -1))
