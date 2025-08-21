@@ -69,4 +69,4 @@ def adjective_to_verb(sentence, index):
         verb = (sentence.split()[index] + "en")
     return verb
     pass
-#print(adjective_to_verb("His expression went dark.", -1))
+#print(adjective_to_verb("His expression went dark!", -1))
